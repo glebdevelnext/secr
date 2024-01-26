@@ -20,8 +20,61 @@
     <meta name="description" content="Матвей Барталевич Егорович — независимый кандидат на выборах Президента России 2024" />
     <meta property="og:description" content="Матвей Барталевич Егорович — независимый кандидат на выборах Президента России 2024"/>
 
+	<style>
+		.warning {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: none;
+	justify-content: center;
+	width: 100%;
+	padding: 30px;
+	box-sizing: border-box;
+	background-color: yellow;
+}
+
+.warning--active {
+	display: flex;
+}
+
+.warning__text {
+	margin-right: 30px;
+}
+
+.warning__read {
+	display: block;
+	margin-left: 15px;
+}
+	</style>
+
 </head>
 <body class="page--index">
+
+
+	
+<div class="warning warning--active">
+	<div class="warning__text">Привет, это журнал «Код»! Мы используем куки.</div>
+	<button class="warning__apply" type="button">OK</button>
+	<a class="warning__read" href="https://ru.wikipedia.org/wiki/Cookie" target="_blank">Что такое куки</a>
+</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.js">  
+</script>
+<script type="text/javascript">
+	const container = document.querySelector(".warning");
+    if (document.cookie.indexOf("warning") != -1) {
+		container.classList.remove("warning--active");
+	}
+
+	if (document.querySelector(".warning")) {
+	  const apply = container.querySelector(".warning__apply");
+	  apply.addEventListener("click", () => {
+	    container.classList.remove("warning--active");
+	    document.cookie = "warning=true; max-age=2592000; path=/";
+	  });
+	};
+</script>
+	
 <section id="main" class="main">
 	<div class="header__outer ">
 	<div class="container">
